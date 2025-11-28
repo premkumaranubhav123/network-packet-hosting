@@ -11,8 +11,11 @@ from datetime import datetime, timedelta
 import threading
 import time
 
-app = dash.Dash(__name__)
-server = app.server
+# Initialize Flask app
+server = Flask(__name__)
+
+# Initialize Dash app
+app = dash.Dash(__name__, server=server, url_base_pathname='/dashboard/')
 
 app.layout = html.Div(style={'background': 'linear-gradient(to right, #ffffff, #f0f8ff)'}, children=[
     html.Div([
@@ -78,6 +81,7 @@ app.layout = html.Div(style={'background': 'linear-gradient(to right, #ffffff, #
     dcc.Store(id='packet-data-store', data=[])
 ])
 
+# Global variables for simulation
 packet_data = []
 simulation_running = True
 
@@ -302,9 +306,13 @@ def update_dashboard(n_clicks, n_intervals, source_ip, destination_ip, protocol,
                "🚨 Anomalous Packets: Error",
                empty_fig)
 
-@app.server.route('/')
+@server.route('/')
 def index():
     return render_template('index.html')
+
+@server.route('/dashboard')
+def dashboard():
+    return app.index()
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

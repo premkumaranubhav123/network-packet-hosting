@@ -3,85 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Packet Analyzer - Simulation</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Network Packet Analyzer</title>
     <style>
-        .simulation-banner {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to right, #ffffff, #f0f8ff);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
-            font-weight: bold;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        
-        .status-indicator {
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-weight: bold;
+        .header {
+            margin-bottom: 30px;
+        }
+        .dashboard-link {
             display: inline-block;
-            margin-left: 10px;
-        }
-        
-        .status-running {
-            background-color: #28a745;
+            padding: 15px 30px;
+            background: #007bff;
             color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            margin: 10px;
+            transition: background 0.3s;
         }
-        
-        .status-stopped {
-            background-color: #dc3545;
-            color: white;
+        .dashboard-link:hover {
+            background: #0056b3;
         }
-        
-        .stat-card {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin: 10px 0;
-            border-left: 4px solid #007bff;
+        .info-box {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="simulation-banner">
-            <h2>🔬 Network Packet Analyzer - Simulation Mode</h2>
-            <p>This dashboard demonstrates packet analysis using simulated network traffic data</p>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Network Packet Analyzer</h1>
+            <p>Real-time network traffic analysis and anomaly detection</p>
         </div>
         
-        <div class="row">
-            <div class="col-12">
-                <div id="dashboard-content">
-                    <!-- Dash app will be embedded here -->
-                </div>
-            </div>
+        <div class="info-box">
+            <h2>🚀 Simulation Mode Active</h2>
+            <p>This dashboard is running in simulation mode, automatically generating realistic network traffic data.</p>
+            <p>Features include real-time visualization, protocol filtering, and anomaly detection using machine learning.</p>
         </div>
         
-        <div class="row mt-4">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>📋 About This Simulation</h5>
-                    </div>
-                    <div class="card-body">
-                        <p>This is a <strong>simulation version</strong> of a network packet analyzer. It generates realistic network traffic patterns including:</p>
-                        <ul>
-                            <li>📨 TCP, UDP, and ICMP packets with realistic sizes</li>
-                            <li>🌐 Simulated IP addresses from various ranges</li>
-                            <li>⚠️ Occasional anomalous packets for detection</li>
-                            <li>📊 Real-time statistics and visualization</li>
-                        </ul>
-                        <p><strong>Note:</strong> No actual network traffic is captured. All data is generated for demonstration purposes.</p>
-                    </div>
-                </div>
-            </div>
+        <a href="/dashboard" class="dashboard-link">🎮 Open Packet Analysis Dashboard</a>
+        
+        <div class="info-box">
+            <h3>📈 Features</h3>
+            <ul style="text-align: left; display: inline-block;">
+                <li>Real-time packet simulation</li>
+                <li>Anomaly detection using Isolation Forest</li>
+                <li>Interactive filtering by IP and protocol</li>
+                <li>Dynamic visualization with Plotly</li>
+                <li>Protocol distribution analysis</li>
+            </ul>
         </div>
     </div>
-
-    <!-- Dash scripts -->
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </body>
 </html>
