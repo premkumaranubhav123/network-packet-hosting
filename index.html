@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Packet Analyzer - Simulation Mode</title>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Network Packet Analyzer - Simulation Mode</h1>
+            <div class="subtitle">🔬 AUTO-SIMULATION MODE: Automatically generating network traffic data</div>
+        </div>
+        
+        <div class="controls">
+            <button id="stop-simulation" class="btn btn-danger">⏹️ Stop Simulation</button>
+            <button id="reset-simulation" class="btn btn-warning">🔄 Reset Simulation</button>
+            <span id="simulation-status" class="status">Status: 🟢 Auto-Running</span>
+        </div>
+        
+        <div id="live-update-plot" class="chart-container"></div>
+        
+        <div class="filters">
+            <input type="text" id="source-ip-input" placeholder="Enter Source IP">
+            <input type="text" id="destination-ip-input" placeholder="Enter Destination IP">
+            <select id="protocol-dropdown">
+                <option value="">Select Protocol</option>
+                <option value="1">ICMP</option>
+                <option value="6">TCP</option>
+                <option value="17">UDP</option>
+                <option value="all">All Protocols</option>
+            </select>
+            <button id="apply-filters-btn" class="btn btn-primary">Apply Filters</button>
+        </div>
+        
+        <div class="stats-container">
+            <div class="stats-box">
+                <p id="traffic-volume">📊 Traffic Volume: 0 packets</p>
+                <p id="average-packet-size">📦 Average Packet Size: 0 bytes</p>
+                <p id="abnormal-packets">⚠️ Abnormal Packets: 0</p>
+                <p id="protocol-counts">🔧 Protocols: None</p>
+                <p id="anomaly-packet-count">🚨 Anomalous Packets: 0</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
